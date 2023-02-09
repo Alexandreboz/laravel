@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategorieControlleur;
 use App\Http\Controllers\JeuControleur;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagsControlleur;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,4 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 Route::resource('jeux', JeuControleur::class);
 Route::resource('categorie', CategorieControlleur::class);
+Route::resource('tags', TagsControlleur::class);

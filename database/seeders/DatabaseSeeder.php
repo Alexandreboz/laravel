@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\categorie;
 use App\Models\Jeu;
+use App\Models\Tags;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,5 +27,6 @@ class DatabaseSeeder extends Seeder
         Jeu::factory(10)->create();
         Jeu::factory()->create(['titre'=>'Mario']);
         categorie::factory(10)->create();
+        Tags::factory(50)->create();
     }
 }

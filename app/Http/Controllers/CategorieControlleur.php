@@ -48,7 +48,8 @@ class CategorieControlleur extends Controller
     public function show($id)
     {
         $categorie = categorie::find($id);
-        return view('categorie.show',['id'=>$id,'categorie'=>$categorie]);
+        $jeux = $categorie->jeux;
+        return view('categorie.show',['id'=>$id,'categorie'=>$categorie, 'jeux'=>$jeux]);
     }
 
     /**
@@ -72,7 +73,17 @@ class CategorieControlleur extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->validate([
+            'libelle'=>'required|string|max:45|min:5'
+        ])){
+        $libelle= $request->input('libelle');
+        $categorie = categorie::find($id);
+        $categorie->libelle = $libelle;
+        $categorie->save();
+        return redirect()->route('categorie.index');
+        }else{
+            return redirect()->back();
+        }
     }
 
     /**
@@ -83,6 +94,7 @@ class CategorieControlleur extends Controller
      */
     public function destroy($id)
     {
-        //
+        categorie::destroy($id);
+        return redirect()->route('categorie.index');
     }
 }

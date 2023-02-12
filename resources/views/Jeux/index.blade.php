@@ -20,12 +20,14 @@
                         </thead>
                      @foreach($jeux as $jeu)
                      <tr>
-                        <td>{{$jeu->id}}</td> 
+                        <td>{{$jeu->id}}</td>
                         <td>{{$jeu->titre}}</td>
                         <td>
-                            <a href="{{route('jeux.show', $jeu->id)}}"><x-voir-btn></x-voir-btn></a>
-                            <a href="{{route('jeux.edit', $jeu->id)}}"><x-modifier></x-modifier></a>
-                            <a href="#"><x-supprimer></x-supprimer></a>
+                            <a href="{{route('jeux.show',$jeu->id)}}">
+                                <x-voir-btn/>
+                            </a>
+                            <x-modifier :action="route('jeux.edit',$jeu->id)"/>
+                            <x-supprimer :action="route('jeux.destroy',$jeu->id)"/>
                         </td>
                      </tr>
                      @endforeach

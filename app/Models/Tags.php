@@ -12,4 +12,8 @@ class Tags extends Model
     protected $primaryKey ="id";
     protected $fillable = array('nom');
     public $timestamps = false;
+
+    public function jeux(){
+        return $this->belongsToMany(Jeu::class, 'pivot_tags');
+    }
 }

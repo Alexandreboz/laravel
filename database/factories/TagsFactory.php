@@ -18,7 +18,6 @@ class TagsFactory extends Factory
     {
         return [
             'nom' => ucwords($this->faker->unique()->words(2, true))
-
         ];
     }
 }

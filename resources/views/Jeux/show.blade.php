@@ -18,9 +18,9 @@ text-black
 text-center
 md:text-left">
         Titre : {{$jeux->titre}}
+        <p>{{$categorie->libelle}}</p>
     </div>
 </div>
-<x-modifier></x-modifier>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 </div>
@@ -28,4 +28,3 @@ md:text-left">
         </div>
     </div>
 </x-app-layout>
-

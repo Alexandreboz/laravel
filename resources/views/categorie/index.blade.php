@@ -23,9 +23,11 @@
                         <td>{{$categories->id}}</td> 
                         <td>{{$categories->libelle}}</td>
                         <td>
-                            <a href="{{route('categorie.show', $categories->id)}}"><x-voir-btn></x-voir-btn></a>
-                            <a href="{{route('categorie.edit', $categories->id)}}"><x-modifier></x-modifier></a>
-                            <a href="#"><x-supprimer></x-supprimer></a>
+                        <a href="{{route('categorie.show',$categories->id)}}">
+                                <x-voir-btn/>
+                            </a>
+                            <x-modifier :action="route('categorie.edit',$categories->id)"/>
+                            <x-supprimer :action="route('categorie.destroy',$categories->id)"/>
                         </td>
                      </tr>
                      @endforeach
